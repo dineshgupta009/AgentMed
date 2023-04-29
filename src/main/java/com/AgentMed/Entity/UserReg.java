@@ -2,8 +2,9 @@ package com.AgentMed.Entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+
+import jakarta.validation.constraints.Pattern;
+
 import lombok.Data;
 
 @Entity
@@ -15,10 +16,10 @@ public class UserReg {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    @Size(min=0,max=10)
+
     private long mobNo;
-    @Email
-    @NotEmpty
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",
+            flags = Pattern.Flag.CASE_INSENSITIVE)
     private String email;
 
     @Column(unique = true)
