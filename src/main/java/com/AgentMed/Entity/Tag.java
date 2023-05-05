@@ -1,10 +1,17 @@
 package com.AgentMed.Entity;
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Getter
+@Setter
 public class Tag {
 
     @Id
