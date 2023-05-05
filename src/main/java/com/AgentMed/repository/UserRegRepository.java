@@ -4,8 +4,9 @@ import com.AgentMed.Entity.UserReg;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
-public interface UserRepository extends JpaRepository<UserReg,Long> {
-
-
+public interface UserRegRepository extends JpaRepository<UserReg,Long> {
+    Optional<UserReg> findByPhoneNumber(Long phoneNumber);
 }

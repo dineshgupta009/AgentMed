@@ -15,9 +15,11 @@ public class UserReg {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
 
-    private long mobNo;
+    @Column(unique = true)
+    private long phoneNumber;
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",
             flags = Pattern.Flag.CASE_INSENSITIVE)
     private String email;
